@@ -1,0 +1,34 @@
+﻿@page
+@model TestApp.Pages.CRUD.deleteModel
+
+<h2>Do you want to delete this employee?</h2>
+<form  asp-action="OnPost" asp method="post">
+    <table border="1" cellpadding="10">
+        <tr>
+            <td>Employee ID :</td>
+            <td>
+                <input name="Id" value="@Model.e.Id" readonly />
+            </td>
+        </tr>
+        <tr>
+            <td> Name :</td>
+            <td><input name="Name" value="@Model.e.Name" readonly /></td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td><input name="Email" value="@Model.e.Email" readonly /></td>
+        </tr>
+        <tr>
+            <td>Department :</td>
+            <td><input name="Department" value="@Model.e.Department" readonly /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+
+    </table>
+
+</form>

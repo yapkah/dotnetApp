@@ -1,0 +1,35 @@
+﻿@page
+
+@model TestApp.Pages.IndexModel
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div>
+    <a asp-page="CRUD/Insert">Add New Employee</a>
+    <h1>HR Management System</h1>
+</div>
+<br />
+<br />
+
+@{
+        var rows = int.Parse(ViewData["Rows"].ToString());
+        var columns = int.Parse(ViewData["Columns"].ToString());
+    }
+<table>
+
+
+    @for (int rowIndex = 0; rowIndex < rows; rowIndex++)
+    {
+        
+        <tr>
+            @for (int columnIndex = 0; columnIndex < columns; columnIndex++)
+            {
+                int cardIndex = columnIndex + (rowIndex * columns);
+                if (cardIndex >= @Model.e.Count())
+                  break;
+                <td>@await Html.PartialAsync("_CardDesign", @Model.e.ElementAt(cardIndex)) </td>
+        
+            }
+        </tr>
+    }
+    
+</table>
